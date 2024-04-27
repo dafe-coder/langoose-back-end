@@ -13,7 +13,7 @@ export class NavigationBlockController {
   }
 
   @Post()
-  async createBlock() {
-    return await this.navigationBlockService.createBlock();
+  async createBlock(dto) {
+    return await this.navigationBlockService.createBlock(dto);
   }
 }

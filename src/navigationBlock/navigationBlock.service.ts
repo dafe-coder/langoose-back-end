@@ -9,7 +9,7 @@ export class NavigationBlockService {
     return await this.prisma.navigationBlock.findMany();
   }
 
-  async createBlock() {
+  async createBlock(dto) {
     return await this.prisma.navigationBlock.create({
       data: {
         title: 'hello',
