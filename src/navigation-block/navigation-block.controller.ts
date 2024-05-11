@@ -7,7 +7,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { NavigationBlockDto } from './dto/navigationBlock.dto';
-import { NavigationBlockService } from './navigationBlock.service';
+import { NavigationBlockService } from './navigation-block.service';
 
 @Controller('navigation-blocks')
 export class NavigationBlockController {
@@ -22,7 +22,7 @@ export class NavigationBlockController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  async createBlock(@Body() dto: NavigationBlockDto) {
+  async create(@Body() dto: NavigationBlockDto) {
     return await this.navigationBlockService.createBlock(dto);
   }
 }
