@@ -1,4 +1,4 @@
-import { IsArray, IsString, MaxLength, MinLength } from 'class-validator';
+import { IsString, MaxLength, MinLength } from 'class-validator';
 
 export class NavigationBlockDto {
   @IsString()
@@ -9,7 +9,4 @@ export class NavigationBlockDto {
     message: 'Max length must be under 64 characters',
   })
   title: string;
-
-  @IsArray({})
-  blockItems: string[];
 }

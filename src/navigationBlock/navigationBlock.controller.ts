@@ -23,8 +23,6 @@ export class NavigationBlockController {
   @Post()
   @UsePipes(new ValidationPipe())
   async createBlock(@Body() dto: NavigationBlockDto) {
-    console.log(dto);
-
     return await this.navigationBlockService.createBlock(dto);
   }
 }
