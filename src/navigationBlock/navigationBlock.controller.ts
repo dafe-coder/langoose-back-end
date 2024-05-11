@@ -1,4 +1,12 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
+import { NavigationBlockDto } from './dto/navigationBlock.dto';
 import { NavigationBlockService } from './navigationBlock.service';
 
 @Controller('navigation-blocks')
@@ -13,7 +21,10 @@ export class NavigationBlockController {
   }
 
   @Post()
-  async createBlock(dto) {
+  @UsePipes(new ValidationPipe())
+  async createBlock(@Body() dto: NavigationBlockDto) {
+    console.log(dto);
+
     return await this.navigationBlockService.createBlock(dto);
   }
 }

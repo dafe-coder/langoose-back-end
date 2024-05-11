@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
+import { NavigationBlockDto } from './dto/navigationBlock.dto';
 
 @Injectable()
 export class NavigationBlockService {
@@ -9,11 +10,9 @@ export class NavigationBlockService {
     return await this.prisma.navigationBlock.findMany();
   }
 
-  async createBlock(dto) {
+  async createBlock(dto: NavigationBlockDto) {
     return await this.prisma.navigationBlock.create({
-      data: {
-        title: 'hello',
-      },
+      data: dto,
     });
   }
 }

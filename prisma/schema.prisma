@@ -8,11 +8,11 @@ datasource db {
 }
 
 model NavigationBlock {
-  id        String                @id @default(cuid())
-  createdAt DateTime              @default(now()) @map("created_at")
-  updatedAt DateTime              @updatedAt @map("updated_at")
-  title     String
-  blockItem NavigationBlockItem[]
+  id         String                @id @default(cuid())
+  createdAt  DateTime              @default(now()) @map("created_at")
+  updatedAt  DateTime              @updatedAt @map("updated_at")
+  title      String
+  blockItems NavigationBlockItem[]
 
   @@map("navigation_block")
 }
