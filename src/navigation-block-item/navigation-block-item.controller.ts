@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Post,
   UsePipes,
@@ -22,5 +23,10 @@ export class NavigationBlockItemController {
   @UsePipes(new ValidationPipe())
   async create(@Body() dto: NavigationBlockItemDto) {
     return this.navigationBlockItemService.create(dto);
+  }
+
+  @Delete()
+  async deleteAll() {
+    return await this.navigationBlockItemService.deleteAll();
   }
 }

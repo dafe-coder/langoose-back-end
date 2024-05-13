@@ -11,4 +11,7 @@ export class NavigationBlockItemService {
   async getAll() {
     return this.prisma.navigationBlockItem.findMany();
   }
+  async deleteAll() {
+    return await this.prisma.navigationBlockItem.deleteMany({});
+  }
 }

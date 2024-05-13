@@ -7,12 +7,20 @@ export class NavigationBlockService {
   constructor(private prisma: PrismaService) {}
 
   async getAll() {
-    return await this.prisma.navigationBlock.findMany();
+    return await this.prisma.navigationBlock.findMany({
+      include: {
+        blockItems: true,
+      },
+    });
   }
 
   async createBlock(dto: NavigationBlockDto) {
     return await this.prisma.navigationBlock.create({
       data: dto,
     });
+  }
+
+  async deleteAll() {
+    return await this.prisma.navigationBlock.deleteMany({});
   }
 }
